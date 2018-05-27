@@ -1,0 +1,8 @@
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\bin\Debug\netcoreapp2.0\CarRental.Core.deps.json
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\bin\Debug\netcoreapp2.0\CarRental.Core.dll
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\bin\Debug\netcoreapp2.0\CarRental.Core.pdb
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.csproj.CoreCompileInputs.cache
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.AssemblyInfoInputs.cache
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.AssemblyInfo.cs
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.dll
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.pdb

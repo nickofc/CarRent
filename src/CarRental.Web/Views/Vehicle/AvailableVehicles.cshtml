@@ -1,0 +1,44 @@
+﻿@using CarRental.Core.Domain
+@model ICollection<Vehicle>
+
+@{
+    ViewData["Title"] = "Dostepne pojazdy";
+}
+
+<div class="container">
+    <h2>Dostepne pojazdy</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Typ pojazdu</th>
+                <th>Pojemność [kg]</th>
+                <th>Ilość siedzeń</th>
+                <th>Dostępne</th>
+                <th>Cena za dzień</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in Model)
+            {
+                <tr>
+                    @switch (car.VehicleType)
+                    {
+                        case VehicleType.Car:
+                            <td>Samochód osobowy</td>
+                            break;
+                        case VehicleType.DeliveryTruck:
+                            <td>Samochód dostawczy</td>
+                            break;
+                        case VehicleType.Limousine:
+                            <td>Limuzyna</td>
+                            break;
+                    }
+                    <td>@car.Capacity</td>
+                    <td>@car.Seats</td>
+                    <td>@car.GetCountOfAvailableVehiclesToday()</td>
+                    <td>@car.PricePerDay.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
