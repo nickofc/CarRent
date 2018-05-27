@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using CarRental.Core.Domain;
-using CarRental.Infrastructure;
+﻿using System.Linq;
 using CarRental.Infrastructure.Database;
 using CarRental.Infrastructure.Extensions;
 using CarRental.Infrastructure.Options;

@@ -1,4 +1,5 @@
 ﻿@using CarRental.Core.Domain
+@using CarRental.Infrastructure.Extensions
 @model RentViewModel
 @{
     ViewData["Title"] = "Wypożycz pojazd";
@@ -12,7 +13,7 @@
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true, null, new { @class = "text-danger" })
-            
+
                 <div class="form-group">
                     @Html.LabelFor(x => x.FistName, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
@@ -48,8 +49,8 @@
                 <div class="form-group">
                     @Html.LabelFor(x => x.VehicleType, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.VehicleType, Enum.GetNames(typeof(VehicleType)).Select(x => new SelectListItem { Text = x }), new { @class = "form-control" })
-                        @Html.ValidationMessageFor(x => x.VehicleType, null, new {@class = "text-danger"})
+                        @Html.DropDownListFor(model => model.VehicleType, Enum.GetNames(typeof(VehicleType)).Select(x => new SelectListItem { Text = Enum.Parse<VehicleType>(x).GetDisplayName(), Value = x }), new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.VehicleType, null, new { @class = "text-danger" })
                     </div>
                 </div>
 

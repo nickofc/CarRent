@@ -6,3 +6,4 @@ C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.
 C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.AssemblyInfo.cs
 C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.dll
 C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.pdb
+C:\Users\Damian\source\repos\CarRental\src\CarRental.Core\obj\Debug\netcoreapp2.0\CarRental.Core.csprojAssemblyReference.cache
