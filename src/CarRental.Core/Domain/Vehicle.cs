@@ -17,7 +17,7 @@ namespace CarRental.Core.Domain
 
         public virtual ICollection<Rental> Rentals => _rentals;
 
-        private Vehicle()
+        protected Vehicle()
         {
 
         }
@@ -35,7 +35,7 @@ namespace CarRental.Core.Domain
         public bool CanRentVehicle(DateTime date)
             => GetCountOfAvailableVehicles(date) > 0;
 
-        public static Vehicle Create(VehicleType vehicleType, int capacity, decimal pricePerDay, int seats, int numbersOfVehicles)
+        public Vehicle(VehicleType vehicleType, int capacity, decimal pricePerDay, int seats, int numbersOfVehicles)
         {
             if (capacity < 0)
                 throw new DomainException($"{nameof(capacity)} is out of range!");
@@ -49,14 +49,11 @@ namespace CarRental.Core.Domain
             if (numbersOfVehicles < 0)
                 throw new DomainException($"{nameof(numbersOfVehicles)} is out of range!");
 
-            return new Vehicle
-            {
-                VehicleType = vehicleType,
-                Capacity = capacity,
-                PricePerDay = pricePerDay,
-                Seats = seats,
-                NumberOfVehicles = numbersOfVehicles,
-            };
+            VehicleType = vehicleType;
+            Capacity = capacity;
+            PricePerDay = pricePerDay;
+            Seats = seats;
+            NumberOfVehicles = numbersOfVehicles;
         }
     }
 }

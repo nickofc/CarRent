@@ -15,8 +15,8 @@ namespace CarRental.Infrastructure.Tests
         {
             var db = Database.GetContext();
             var date = DateTime.Now;
-            var vehicle = Vehicle.Create(VehicleType.Car, 100, 100, 4, 1);
-            var rental = Rental.Create(string.Empty, string.Empty, string.Empty, string.Empty, date);
+            var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 1);
+            var rental = new Rental(string.Empty, string.Empty, string.Empty, string.Empty, date);
             vehicle.Rentals.Add(rental);
 
             db.Vehicles.Add(vehicle);
@@ -34,7 +34,7 @@ namespace CarRental.Infrastructure.Tests
         public async Task when_vehicle_are_unavabilable_invoke_RentVehicle_should_throw_ServiceException()
         {
             var db = Database.GetContext();
-            var vehicle = Vehicle.Create(VehicleType.Car, 100, 100, 4, 0);
+            var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 0);
 
             db.Vehicles.Add(vehicle);
             db.SaveChanges();
@@ -51,7 +51,7 @@ namespace CarRental.Infrastructure.Tests
         public async Task when_vehicle_are_unavabilable_invoke_RentByIdAsync_should_throw_ServiceException()
         {
             var db = Database.GetContext();
-            var vehicle = Vehicle.Create(VehicleType.Car, 100, 100, 4, 0);
+            var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 0);
 
             db.Vehicles.Add(vehicle);
             db.SaveChanges();
@@ -80,7 +80,7 @@ namespace CarRental.Infrastructure.Tests
         public async Task when_invoking_RentByIdAsync_should_successfuly_rent_vehicle()
         {
             var db = Database.GetContext();
-            var vehicle = Vehicle.Create(VehicleType.Car, 100, 100, 4, 1);
+            var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 1);
 
             db.Vehicles.Add(vehicle);
             db.SaveChanges();
@@ -104,7 +104,7 @@ namespace CarRental.Infrastructure.Tests
         public async Task when_invoking_RentAsync_should_successfuly_rent_vehicle()
         {
             var db = Database.GetContext();
-            var vehicle = Vehicle.Create(VehicleType.Car, 100, 100, 4, 1);
+            var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 1);
 
             db.Vehicles.Add(vehicle);
             db.SaveChanges();
@@ -130,9 +130,9 @@ namespace CarRental.Infrastructure.Tests
             var db = Database.GetContext();
             db.Vehicles.AddRange(new List<Vehicle>
             {
-                Vehicle.Create(VehicleType.Car, 100, 100, 4, 5),
-                Vehicle.Create(VehicleType.DeliveryTruck, 100, 100, 100, 5),
-                Vehicle.Create(VehicleType.DeliveryTruck, 100, 100, 100, 0),
+                new Vehicle(VehicleType.Car, 100, 100, 4, 5),
+                new Vehicle(VehicleType.DeliveryTruck, 100, 100, 100, 5),
+                new Vehicle(VehicleType.DeliveryTruck, 100, 100, 100, 0),
             });
             db.SaveChanges();
 

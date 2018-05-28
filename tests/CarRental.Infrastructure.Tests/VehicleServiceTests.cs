@@ -11,7 +11,7 @@ namespace CarRental.Infrastructure.Tests
     {
         private static Vehicle CreateVehicle()
         {
-            return Vehicle.Create(VehicleType.Car, 1, 1, 1, 1);
+            return new Vehicle(VehicleType.Car, 1, 1, 1, 1);
         }
 
         [Fact]

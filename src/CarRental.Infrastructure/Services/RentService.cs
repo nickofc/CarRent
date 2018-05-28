@@ -34,7 +34,7 @@ namespace CarRental.Infrastructure.Services
                 throw new ServiceException("No vehicles available.");
 
             var vehicle = vehicles.First();
-            var rental = Rental.Create(firstName, phoneNumber, city, street, date);
+            var rental = new Rental(firstName, phoneNumber, city, street, date);
 
             vehicle.Rentals.Add(rental);
             await _context.SaveChangesAsync();
@@ -48,7 +48,7 @@ namespace CarRental.Infrastructure.Services
             if (vehicle == null)
                 throw new ServiceException("No vehicle available.");
 
-            var rental = Rental.Create(firstName, phoneNumber, city, street, date);
+            var rental = new Rental(firstName, phoneNumber, city, street, date);
             vehicle.Rentals.Add(rental);
             await _context.SaveChangesAsync();
         }

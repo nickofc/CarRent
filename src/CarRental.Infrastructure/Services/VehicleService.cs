@@ -24,8 +24,8 @@ namespace CarRental.Infrastructure.Services
 
         public async Task CreateAsync(VehicleType vehicleType, int capacity, decimal pricePerDay, int seats, int numbersOfVehicles)
         {
-            var entity = Vehicle.Create(vehicleType, capacity, pricePerDay, seats, numbersOfVehicles);
-
+            var entity = new Vehicle(vehicleType, capacity, pricePerDay, seats, numbersOfVehicles);
+                
             await _context.Vehicles.AddAsync(entity);
             await _context.SaveChangesAsync();
         }

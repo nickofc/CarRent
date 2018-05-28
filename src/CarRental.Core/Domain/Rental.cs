@@ -16,21 +16,18 @@ namespace CarRental.Core.Domain
         public int VehicleId { get; set; }
         public virtual Vehicle Vehicle { get; set; }
 
-        private Rental()
+        protected Rental()
         {
 
         }
 
-        public static Rental Create(string fistName, string phoneNumber, string city, string street, DateTime date)
+        public Rental(string fistName, string phoneNumber, string city, string street, DateTime date)
         {
-            return new Rental
-            {
-                Date = date,
-                FistName = fistName,
-                PhoneNumber = phoneNumber,
-                City = city,
-                Street = street,
-            };
+            Date = date;
+            FistName = fistName;
+            PhoneNumber = phoneNumber;
+            City = city;
+            Street = street;
         }
     }
 }
