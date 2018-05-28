@@ -13,7 +13,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_vehicle_is_already_rent_invoke_RentVehicle_should_throw_ServiceException2()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var date = DateTime.Now;
             var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 1);
             var rental = new Rental(string.Empty, string.Empty, string.Empty, string.Empty, date);
@@ -33,7 +33,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_vehicle_are_unavabilable_invoke_RentVehicle_should_throw_ServiceException()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 0);
 
             db.Vehicles.Add(vehicle);
@@ -50,7 +50,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_vehicle_are_unavabilable_invoke_RentByIdAsync_should_throw_ServiceException()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 0);
 
             db.Vehicles.Add(vehicle);
@@ -67,7 +67,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoke_RentByIdAsync_and_vehicle_do_not_exist_should_throw_ServiceException()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
 
             var rentService = new RentService(db);
             var date = DateTime.Now;
@@ -79,7 +79,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoking_RentByIdAsync_should_successfuly_rent_vehicle()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 1);
 
             db.Vehicles.Add(vehicle);
@@ -103,7 +103,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoking_RentAsync_should_successfuly_rent_vehicle()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicle = new Vehicle(VehicleType.Car, 100, 100, 4, 1);
 
             db.Vehicles.Add(vehicle);
@@ -127,7 +127,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoking_GetAvailableVehiclesAsync_should_return_collection_of_available_vehicles()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             db.Vehicles.AddRange(new List<Vehicle>
             {
                 new Vehicle(VehicleType.Car, 100, 100, 4, 5),

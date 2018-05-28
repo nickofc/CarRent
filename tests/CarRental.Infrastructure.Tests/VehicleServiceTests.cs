@@ -17,7 +17,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoking_CreateAsync_should_create_vehicle_and_add_to_db()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicle = CreateVehicle();
 
             var vehicleService = new VehicleService(db);
@@ -30,7 +30,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoking_DeleteAsync_should_delete_vehicle_from_db()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicle = CreateVehicle();
             db.Vehicles.Add(vehicle);
             db.SaveChanges();
@@ -44,7 +44,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoking_DeleteAsyc_and_vehicle_not_exist_should_throw_ServiceException()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicleService = new VehicleService(db);
             await Assert.ThrowsAsync<ServiceException>(async () =>
                 await vehicleService.DeleteAsync(0));
@@ -53,7 +53,7 @@ namespace CarRental.Infrastructure.Tests
         [Fact]
         public async Task when_invoking_GetByIdAsync_should_return_vehicle_from_db()
         {
-            var db = Database.GetContext();
+            var db = Database.BuildContextForTest();
             var vehicle = CreateVehicle();
 
             db.Vehicles.Add(vehicle);

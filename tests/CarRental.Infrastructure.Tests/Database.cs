@@ -6,7 +6,7 @@ namespace CarRental.Infrastructure.Tests
 {
     public static class Database
     {
-        public static Context GetContext(string name = default(string))
+        public static Context BuildContextForTest(string name = default(string))
         {
             var options = new DbContextOptionsBuilder();
             options.UseInMemoryDatabase(name ?? Guid.NewGuid().ToString()); 
